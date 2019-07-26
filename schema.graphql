@@ -1,0 +1,22 @@
+type Message {
+  id: String
+  roomId: String
+  body: String
+  timestamp: String
+}
+
+type Room {
+  id: String
+  name: String
+  messages: [Message]
+}
+
+type Query {
+  messages(roomName: String): [Message]
+  rooms: [Room]
+}
+
+type Mutation {
+  start(roomName: String): Room
+  chat(roomName: String, body: String): Message
+}
